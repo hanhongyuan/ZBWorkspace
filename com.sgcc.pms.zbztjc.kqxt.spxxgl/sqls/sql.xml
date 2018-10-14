@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-Maping>
+
+<!-- 查询输电视频装置  -->
+	<select id="selectSdvideoDevice">
+select cast(tv.obj_id as varchar2(42)), t.WSDEPMC ssdw, t.xtmc, t.LINKEDLINENAME, t.LINKEDPOLENAME, t.DEVICENAME, decode(tv.videostate,'online','在线','offline','离线','invalid','无效') videostate, cast('查看' as varchar2(42)) JCXX, to_char(T.RUNDATE, 'yyyy-MM-dd HH:mm:ss') rundate, tv.videocode, tv.sftypt, tv.devicecode from mw_app.cmsv_linedevicef t left join mw_app.cmst_videostatusinfo tv on t.DEVICECODE = tv.devicecode where t.MONITORINGTYPES like '%018003%' and tv.type = 'sd' and t.WSDEPMC is not null and t.DEVICEVOLTAGE is not null AND t.LINKEDEQUIPMENTDY IS NOT NULL 
+	</select>
+	
+	<!-- 查询变电视频装置  -->
+	<select id="selectBdvideoDevice">
+select cast(tv.obj_id as varchar2(42)),t.WSDEPMC ssdw,t.xtmc,t.LinkedStationname,t.DEVICENAME,decode(tv.videostate,'online','在线','offline','离线','invalid','无效') videostate, cast('查看' as varchar2(42)) JCXX,to_char(T.RUNDATE, 'yyyy-MM-dd HH:mm:ss') rundate,tv.videocode,tv.sftypt from mw_app.cmsv_transfdevicef t left join mw_app.cmst_videostatusinfo tv on t.DEVICECODE = tv.devicecode where t.MONITORINGTYPES like '%026001%' and tv.type = 'bd' and t.WSDEPMC is not null and t.DEVICEVOLTAGE is not null AND t.LINKEDEQUIPMENTDY IS NOT NULL 
+	</select>
+</sql-Maping>

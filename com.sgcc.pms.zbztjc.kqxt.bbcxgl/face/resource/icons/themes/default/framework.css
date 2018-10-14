@@ -1,0 +1,305 @@
+.mx input[type=button], .mx input[type=submit], .mx button, .mx .button
+{
+	color:#444444;
+    border:1px solid #A7A7A7;
+    border-radius:3px; -moz-border-radius:3px;-webkit-border-radius:3px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:0 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.1);      
+    padding-left:15px;
+    padding-right:15px;    
+    background:url(images/button_bg.png) repeat-x center center;            
+}
+
+.mx input[type=button]:hover, .mx input[type=submit]:hover, .mx button:hover, .mx .button:hover
+{
+	color:#000000;
+    border:1px solid #9D9D9D;    
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:0 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.2);
+    background-image:url(images/button_hover.png);    
+}
+
+.mx input[type=button]:active, .mx input[type=submit]:active, .mx button:active, .mx .button:active
+{
+    border:1px solid #979797;
+    box-shadow:none;
+    background-image:url(images/button_active.png);
+}
+
+.mx input[type=button][disabled], .mx input[type=submit][disabled], .mx button[disabled], .mx .button.disabled
+{
+	color:#AAAAAA;
+	border:1px solid #C8C8C8;
+    background-image:url(images/button_disabled_bg.png);
+    box-shadow:none; -moz-box-shadow:none; -webkit-box-shadow:none;
+}
+
+.mx input[type=submit], .mx button[default=true]
+{
+	border:1px solid #5d4ab1;	
+	border:1px solid #9D9D9D;
+	background-image:url(images/button_default_bg.png);
+}
+
+.mx input[type=submit]:active, .mx button[default=true]:active
+{
+    background-image:url(images/button_default_active_bg.png);
+}
+
+
+.mx .expandable
+{
+	
+}
+
+.mx .expandable > dt
+{
+    height:18px;
+    line-height:18px;
+    padding-left:24px;
+    font-weight:bold;
+    color:#555;
+    background:url(images/collapsed.png) no-repeat 7px 2px;
+    cursor:pointer;
+}
+.mx .expandable > dt:hover
+{
+    color:#222;
+}
+
+.mx .expandable.expanded > dt
+{
+    background-image:url(images/expanded.png);
+}
+
+.mx .expandable > dd
+{
+    padding:15px;
+    padding-bottom:0px;
+    padding-top:3px;
+}
+
+
+.mx .mask, .mx.mask
+{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background:black;
+}
+
+.mx.busying,.mx .busying
+{
+	position:absolute;
+	left: 0;
+	top:0;
+	background:url(images/alpha_20.png);
+	width: 100%;
+	height: 100%;
+}
+.mx.busying > span,.mx .busying > span
+{
+	display:block;
+	width:100%;
+	height:100%;
+	background:url(images/loading_32.gif) no-repeat center center;
+}
+
+.mx#indication, .mx #indication
+{
+    position:absolute;
+    z-index:999991;
+    background-image:url(images/alpha_70.png);
+    padding:12px;
+    padding-top:8px;
+}
+
+.mx#indication > #text, .mx #indication > #text
+{
+    color:White;
+    font-size:14px;
+    font-family:寰蒋闆呴粦,Arial;
+    font-weight:bold;
+    text-align:center;
+    text-shadow:0 1px black;
+}
+
+
+.mx#indication > #icon, .mx #indication > #icon
+{
+    color:White;
+    font-family:pictos;
+    font-size:40px;
+    text-align:center;
+    margin-bottom:5px;
+}
+
+
+.mx#indication > .info
+{
+    width:100%;
+	height:48px;
+    background:url(../../icons/40/info.png) no-repeat center center;
+}
+
+.mx#indication > .warn
+{
+    width:100%;
+	height:48px;
+    background:url(../../icons/40/warn.png) no-repeat center center;
+}
+
+.mx#indication > .error
+{
+	width:100%;
+	height:48px;
+    background:url(../../icons/40/error.png) no-repeat center center;
+}
+
+.mx#indication > .busy
+{
+    width:100%;
+	height:48px;
+    background:url(../../icons/40/busy.png) no-repeat center center;
+}
+
+.mx#indication > .user
+{
+    width:100%;
+	height:48px;
+    background:url(../../icons/40/user.png) no-repeat center center;
+}
+
+
+
+/* toolTip CSS */
+.mx#toolTip_holder 
+{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+}
+
+.mx#toolTip_holder.tip_top 
+{
+	padding-bottom: 5px;
+}
+
+.mx#toolTip_holder.tip_bottom 
+{
+	padding-top: 5px;
+}
+
+.mx#toolTip_holder.tip_right 
+{
+	padding-left: 5px;
+}
+
+.mx#toolTip_holder.tip_left 
+{
+	padding-right: 5px;
+}
+
+.mx#toolTip_holder #toolTip_content 
+{
+	font-size: 11px;
+	color: #fff;
+	text-shadow: 0 0 2px #000;
+	padding: 4px 8px;
+	border: 1px solid rgba(123,123,123,0.25);
+	background-color: #7B7B7B;
+	background-color: rgba(123,123,123,0.92);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#787777));
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	box-shadow: 0 0 3px #555;
+	-webkit-box-shadow: 0 0 3px #555;
+	-moz-box-shadow: 0 0 3px #555;
+}
+
+.mx#toolTip_holder #toolTip_arrow, .mx#toolTip_holder #toolTip_arrow_inner 
+{
+	position: absolute;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	height: 0;
+	width: 0;
+}
+
+.mx#toolTip_holder.tip_top #toolTip_arrow 
+{
+	border-top-color: #7c7c7c;
+	border-top-color: rgba(123,123,123,0.35);
+}
+
+.mx#toolTip_holder.tip_bottom #toolTip_arrow 
+{
+	border-bottom-color: #7c7c7c;
+	border-bottom-color: rgba(123,123,123,0.35);
+}
+
+.mx#toolTip_holder.tip_right #toolTip_arrow 
+{
+	border-right-color: #7c7c7c;
+	border-right-color: rgba(123,123,123,0.35);
+}
+
+.mx#toolTip_holder.tip_left #toolTip_arrow 
+{
+	border-left-color: #7c7c7c;
+	border-left-color: rgba(123,123,123,0.35);
+}
+
+.mx#toolTip_holder.tip_top #toolTip_arrow_inner 
+{
+	margin-top: -7px;
+	margin-left: -6px;
+	border-top-color: #7B7B7B;
+	border-top-color: rgba(123,123,123,0.92);
+}
+
+.mx#toolTip_holder.tip_bottom #toolTip_arrow_inner 
+{
+	margin-top: -5px;
+	margin-left: -6px;
+	border-bottom-color: #7B7B7B;
+	border-bottom-color: rgba(123,123,123,0.92);
+}
+
+.mx#toolTip_holder.tip_right #toolTip_arrow_inner 
+{
+	margin-top: -6px;
+	margin-left: -5px;
+	border-right-color: #7B7B7B;
+	border-right-color: rgba(123,123,123,0.92);
+}
+
+.mx#toolTip_holder.tip_left #toolTip_arrow_inner 
+{
+	margin-top: -6px;
+	margin-left: -7px;
+	border-left-color: #7B7B7B;
+	border-left-color: rgba(123,123,123,0.92);
+}
+
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{	
+	.mx#toolTip_holder #toolTip_content 
+	{
+		padding: 4px 8px 5px 8px;
+		background-color: rgba(123,123,123,0.88);
+	}
+	.mx#toolTip_holder.tip_bottom #toolTip_arrow_inner 
+	{ 
+		border-bottom-color: rgba(123,123,123,0.88);
+	}
+	.mx#toolTip_holder.tip_top #toolTip_arrow_inner 
+	{ 
+		border-top-color: rgba(123,123,123,0.92);
+	}
+}

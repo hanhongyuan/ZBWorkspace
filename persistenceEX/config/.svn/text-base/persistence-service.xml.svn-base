@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:module="http://www.sgcc.com.cn/schema/platform/module"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.sgcc.com.cn/schema/platform/module http://www.sgcc.com.cn/schema/platform/module/module.xsd">
+	
+	<module:service id="sessionFactoryService" beanId="sessionFactory"
+		targetName="org.hibernate.SessionFactory" />
+
+	<module:service id="transactionManagerService" beanId="transactionManager"
+		targetName="org.springframework.transaction.PlatformTransactionManager" />
+
+	<module:service id="baseDaoService" beanId="baseDao"
+		targetName="com.sgcc.uap.persistence.IBaseDao" />
+
+	<module:service id="hibernateDaoService" beanId="hibernateDao"
+		targetName="com.sgcc.uap.persistence.IHibernateDao" />
+	<!-- 状态监测 -->	
+	<module:service id="sessionFactoryServiceZTJC" beanId="sessionFactoryZTJC"
+		targetName="org.hibernate.SessionFactory" />
+	<module:service id="transactionManagerServiceZTJC" beanId="transactionManagerZTJC"
+        targetName="org.springframework.transaction.PlatformTransactionManager"/>
+    <module:service id="baseDaoServiceZTJC" beanId="baseDaoZTJC"
+        targetName="com.sgcc.uap.persistence.IBaseDao"/>	
+		
+	<module:service id="hibernateDaoService_ztjc" beanId="hibernateDao_ztjc"
+		targetName="com.sgcc.uap.persistence.IHibernateDao" />
+		
+	<!-- 供电电压 -->
+	<module:service id="sessionFactoryService_gddy" beanId="sessionFactory_gddy"
+		targetName="org.hibernate.SessionFactory"/>
+	<module:service id="transactionManagerService_gddy" beanId="transactionManager_gddy"
+        targetName="org.springframework.transaction.PlatformTransactionManager"/>	
+	<module:service id="baseDaoService_gddy" beanId="baseDao_gddy"
+		targetName="com.sgcc.uap.persistence.IBaseDao" />
+	<module:service id="hibernateDaoService_gddy" beanId="hibernateDao_gddy"
+		targetName="com.sgcc.uap.persistence.IHibernateDao" />
+	
+</beans>

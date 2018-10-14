@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:module="http://www.sgcc.com.cn/schema/platform/module"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.sgcc.com.cn/schema/platform/module http://www.sgcc.com.cn/schema/platform/module/module.xsd">
+	<!-- 状态监测 -->
+	<module:reference id="dataSourceZTJC" targetName="javax.sql.DataSource"
+		filter="platform_service_idname=dataSourceServiceZTJC" />
+	
+	<!-- 供电电压 -->
+	<module:reference id="dataSource_gddy" targetName="javax.sql.DataSource"
+		filter="platform_service_idname=dataSourceService_gddy" />
+</beans>

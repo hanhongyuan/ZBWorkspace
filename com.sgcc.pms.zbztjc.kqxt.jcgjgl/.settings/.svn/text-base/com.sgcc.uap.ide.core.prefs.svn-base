@@ -1,0 +1,10 @@
+com.sgcc.uap.ide.core.is.init.properties=true
+com.sgcc.uap.ide.core.project.out.path.config=config
+com.sgcc.uap.ide.core.project.out.path.context=com.sgcc.pms.zbztjc.kqxt.jcgjgl
+com.sgcc.uap.ide.core.project.out.path.enum=config/enum/enums.properties
+com.sgcc.uap.ide.core.project.out.path.java=src
+com.sgcc.uap.ide.core.project.out.path.jsp=face
+com.sgcc.uap.ide.core.project.out.path.service=config\\appconf/beans
+com.sgcc.uap.ide.core.project.out.path.sql=sql
+com.sgcc.uap.ide.core.project.top.package=org.sotower.dmplugin.
+eclipse.preferences.version=1

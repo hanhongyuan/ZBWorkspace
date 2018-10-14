@@ -1,0 +1,32 @@
+# oracle 
+sessionFactory.hibernateProperties[hibernate.dialect] = org.hibernate.dialect.Oracle10gDialect
+# sqlserver
+#sessionFactory.hibernateProperties[hibernate.dialect] = org.hibernate.dialect.SQLServerDialect
+# db2
+#sessionFactory.hibernateProperties[hibernate.dialect] = org.hibernate.dialect.DB2Dialect
+
+sessionFactory.hibernateProperties[hibernate.show_sql] = false
+
+sessionFactory.hibernateProperties[hibernate.jdbc.fetch_size] = 50
+
+sessionFactory.hibernateProperties[hibernate.jdbc.batch_size] = 100
+
+sessionFactory.hibernateProperties[hibernate.cache.use_query_cache] = false
+# set maxresult number for hibernate
+hibernateDaoSupport.maxResults = 2000
+
+# oracle 
+sessionFactory_gddy.hibernateProperties[hibernate.dialect] = org.hibernate.dialect.Oracle10gDialect
+sessionFactory_gddy.hibernateProperties[hibernate.show_sql] = false 
+sessionFactory_gddy.hibernateProperties[hibernate.jdbc.fetch_size] = 50 
+sessionFactory_gddy.hibernateProperties[hibernate.jdbc.batch_size] = 100 
+sessionFactory_gddy.hibernateProperties[hibernate.cache.use_query_cache] =false
+hibernateDaoSupport_gddy.maxResults = 2000
+
+# oracle
+sessionFactoryZTJC.hibernateProperties[hibernate.dialect] = org.hibernate.dialect.Oracle10gDialect
+sessionFactoryZTJC.hibernateProperties[hibernate.show_sql] = false 
+sessionFactoryZTJC.hibernateProperties[hibernate.jdbc.fetch_size] = 50 
+sessionFactoryZTJC.hibernateProperties[hibernate.jdbc.batch_size] = 100 
+sessionFactoryZTJC.hibernateProperties[hibernate.cache.use_query_cache] =false
+hibernateDaoSupportZTJC.maxResults = 2000

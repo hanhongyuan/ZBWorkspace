@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions
+END
+datasource.extension.jar
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions/datasource.extension.jar
+END
+kernel.policy.extension.jar
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions/kernel.policy.extension.jar
+END
+logger.extension.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions/logger.extension.jar
+END
+kernel.extension.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions/kernel.extension.jar
+END
+spring.extension.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions/spring.extension.jar
+END
+system.extension.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions/system.extension.jar
+END
+config.extension.jar
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/SGPMS/!svn/ver/7/01_Source/01_Trunk/02_zbpms/01_code/01_sgzbpms/WebContent/WEB-INF/repository/platform/extensions/config.extension.jar
+END

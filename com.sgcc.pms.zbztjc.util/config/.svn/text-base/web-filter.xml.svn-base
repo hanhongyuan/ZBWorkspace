@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:module="http://www.sgcc.com.cn/schema/platform/module"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.sgcc.com.cn/schema/platform/module 
+	http://www.sgcc.com.cn/schema/platform/module/module.xsd">
+	<!--BAC过滤器  -->
+ 	<!-- <module:servletfilter id="bacFilter">
+		<module:filter-name>bacFilter</module:filter-name>
+		<module:filter-class>
+			com.sgcc.pms.ztjc.util.filter.BacFilter
+		</module:filter-class>
+		<module:url-pattern>*/rest/*</module:url-pattern>
+		<module:url-pattern>*/servlets/*</module:url-pattern>
+	</module:servletfilter> -->
+	
+	<module:servletfilter id="UrlCheckFilter">
+		<module:filter-name>UrlCheckFilter</module:filter-name>
+		<module:filter-class>
+			com.sgcc.pms.zbztjc.util.filter.UrlCheckFilter
+		</module:filter-class>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.gis/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jcxxgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jczhgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jrxxgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.spxxgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.util/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.ztkhgl/rest/*</module:url-pattern>
+	</module:servletfilter>
+	
+	
+	<module:servletfilter id="RequestMethodFilter">
+		<module:filter-name>RequestMethodFilter</module:filter-name>
+		<module:filter-class>
+			com.sgcc.pms.zbztjc.util.filter.RequestMethodFilter
+		</module:filter-class>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.gis/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jcxxgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jczhgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jrxxgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.spxxgl/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.util/rest/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.ztkhgl/rest/*</module:url-pattern>
+	</module:servletfilter>
+
+	<!--越权过滤器 (下发XF) -->
+	<!-- <module:servletfilter id="excessAuthority">
+		<module:filter-name>excessAuthority</module:filter-name>
+		<module:filter-class>com.sgcc.pms.zbztjc.util.filter.ExcessAuthorityFilter</module:filter-class>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.gis/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jcxxgl/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jczhgl/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.jrxxgl/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.spxxgl/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.util/*</module:url-pattern>
+		<module:url-pattern>/com.sgcc.pms.zbztjc.ztkhgl/*</module:url-pattern>
+		导出事件的过滤
+		<module:url-pattern>/rest/DocumentController/documentLoad</module:url-pattern>
+		<module:url-pattern>/rest/DocumentController/documentLoad/*</module:url-pattern>
+		<module:url-pattern>/pmsframework/servlets/ExportExcelServlet</module:url-pattern>
+		<module:url-pattern>/pmsframework/servlets/ExportExcelServlet/*</module:url-pattern>
+		<module:url-pattern>/pmsframework/rest/excel/*</module:url-pattern>
+		<module:url-pattern>/pmsframework/rest/DocumentController/*</module:url-pattern>
+	</module:servletfilter> -->
+
+</beans>

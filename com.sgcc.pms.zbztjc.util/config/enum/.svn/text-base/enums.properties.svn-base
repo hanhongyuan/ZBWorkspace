@@ -1,0 +1,10 @@
+# for example
+#STPLAN.PLANTYPE=0:\u5e74\u5ea6\u8ba1\u5212,1:\u6708\u5ea6\u8ba1\u5212
+
+#EMP.SEX=0:\u7537,1:\u5973
+
+#EMP.SKILL=00:\u542c,01:\u8bf4,10:\u8bfb,11:\u5199
+manufacturerZb.status=Y:\u662f,N:\u5426
+
+tgyjs.sfss=T:\u662f,F:\u5426
+tgyjs.bzdm=25:\u4ea4\u6d4135kV,30:\u4ea4\u6d4166kV,32:\u4ea4\u6d41110kV,33:\u4ea4\u6d41220kV,34:\u4ea4\u6d41330kV,35:\u4ea4\u6d41500kV,36:\u4ea4\u6d41750kV,37:\u4ea4\u6d411000kV,80:\u76f4\u6d41120kV,81:\u76f4\u6d41125kV,82:\u76f4\u6d41400kV,83:\u76f4\u6d41500kV,84:\u76f4\u6d41660kV,85:\u76f4\u6d41800kV,86:\u76f4\u6d411000kV

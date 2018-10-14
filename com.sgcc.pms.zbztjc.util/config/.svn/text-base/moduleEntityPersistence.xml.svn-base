@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:module="http://www.sgcc.com.cn/schema/platform/module" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.sgcc.com.cn/schema/platform/module http://www.sgcc.com.cn/schema/platform/module/module.xsd">  
+  <module:entity id="com.sgcc.pms.zbztjc.utilEntity" sessionFactory="sessionFactory">
+    
+  </module:entity>
+  
+  <module:reference id="hibernateDao_ztjc" targetName="com.sgcc.uap.persistence.IHibernateDao"
+		 filter="platform_service_idname=hibernateDaoService_ztjc" />
+</beans>

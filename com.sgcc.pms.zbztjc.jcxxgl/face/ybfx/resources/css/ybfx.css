@@ -1,0 +1,163 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-family:"方正仿宋_GBK";
+	font-size:18px;
+}
+#mainDiv{
+	position:relative;
+	z-index:1;
+}
+#header{
+	margin:96px 120px 96px 120px;
+}
+#header h1{
+	font-family:"方正小标宋_GBK";
+	font-size:30px;
+	line-height:38px;
+	text-align:center;
+	letter-spacing:4px;
+}
+#header h3{
+	font-family:"方正仿宋_GBK";
+	font-size:28px;
+	line-height:36px;
+	text-align:center;
+}
+
+#content{
+	width:100%;
+	padding:0 auto;
+	text-align:center;
+}
+
+#capOne{
+	width:60%;
+	margin:0 auto;
+	text-align:left;
+}
+
+#capOne h2{
+	font-family:"方正仿宋_GBK";
+	font-size:28px;
+	text-indent:29px;
+	line-height:37px;
+	vertical-align:baseline;
+}
+
+#capOne #tab1{
+	margin:15px auto;
+}
+
+#capOne #tab2{
+	margin:15px 0px 30px 0px;
+}
+
+#capOne #tab3{
+	margin:15px auto;
+}
+
+#capTwo{
+	width:60%;
+	margin:0 auto;
+	text-align:left;
+}
+
+#capTwo h2{
+	font-family:"方正仿宋_GBK";
+	font-size:28px;
+	text-indent:29px;
+	line-height:37px;
+	vertical-align:baseline;
+}
+
+
+#capTwo #tab4{
+	margin:15px 0px 30px 0px;
+}
+
+#capTwo #tab5{
+	margin:15px auto;
+}
+
+#capTwo #tab6{
+	margin:15px auto;
+}
+
+#capThree{
+	width:60%;
+	margin:0 auto;
+	text-align:left;
+}
+
+#capThree h2{
+	font-family:"方正仿宋_GBK";
+	font-size:28px;
+	text-indent:29px;
+	line-height:37px;
+	vertical-align:baseline;
+}
+
+#capThree .hindex{
+	text-indent:30px;
+	line-height:37px;
+}
+
+#capThree #tab7{
+	margin:15px 0px 30px 0px;
+}
+
+#capThree #tab8{
+	margin:15px 0px 50px 0px;
+}
+
+p{
+	font-family:"仿宋_GB2312";
+	line-height:37px;
+	font-size:22px;
+	text-indent:29px;
+	letter-spacing:1px;
+}
+table.gridtable {
+	width:100%;
+	font-family:"宋体";
+	font-size:14px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	text-align:center;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	text-align:center;
+}
+
+caption{
+	font-family:"方正仿宋_GBK";
+	font-size:19px;
+	line-height:36px;
+}
+
+#div_report_bg{
+ 	z-index:2;
+	margin:2px 5px 0px 0px;
+}
+
+#div_report_bg .conLabekText{
+	font-family:"宋体";
+	font-size:16px;
+	letter-spacing:2px;
+}
+

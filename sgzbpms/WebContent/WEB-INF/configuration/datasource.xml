@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:module="http://www.sgcc.com.cn/schema/platform/module" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.sgcc.com.cn/schema/platform/module http://www.sgcc.com.cn/schema/platform/module/module.xsd">  
+  <!--JDBC DataSource Example-->  
+  <!--JNDI DataSource Example-->  
+  <!--   
+     <bean id="dataSource"
+    class="org.springframework.jndi.JndiObjectFactoryBean">
+    <property name="jndiName">
+      <value>sguap</value>
+    </property>
+    <property name="resourceRef">
+      <value>true</value>
+    </property>
+  </bean> 
+  -->  
+  <module:service id="dataSourceService" beanId="dataSource" targetName="javax.sql.DataSource"/>  
+  <!-- 状态监测数据库配置 -->  
+  <module:service id="dataSourceServiceZTJC" beanId="dataSourceZTJC" targetName="javax.sql.DataSource"/>  
+  <bean id="dataSourceZTJC" name="dataSourceZTJC" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
+    <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>  
+    <property name="url" value="jdbc:oracle:thin:@172.16.221.15:1521:zbztjc"/>  
+    <property name="username" value="mw_app"/>  
+    <property name="password" value="app"/>  
+    <property name="maxActive" value="100"/>  
+    <property name="maxIdle" value="30"/>  
+    <property name="maxWait" value="5000"/>  
+    <property name="defaultAutoCommit" value="true"/>  
+    <property name="removeAbandoned" value="true"/>  
+    <property name="removeAbandonedTimeout" value="60"/>  
+    <property name="logAbandoned" value="true"/> 
+  </bean>  
+  <!-- 供电电压数据库配置 -->  
+  <module:service id="dataSourceService_gddy" beanId="dataSource_gddy" targetName="javax.sql.DataSource"/>  
+  <bean id="dataSource_gddy" name="dataSource_gddy" class="org.apache.commons.dbcp.BasicDataSource"> 
+    <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>  
+    <property name="url" value="jdbc:oracle:thin:@172.16.221.26:1521:VASCS"/>  
+    <property name="username" value="mw_app"/>  
+    <property name="password" value="app"/>  
+    <property name="maxActive" value="100"/>  
+    <property name="maxIdle" value="30"/>  
+    <property name="maxWait" value="5000"/>  
+    <property name="defaultAutoCommit" value="true"/>  
+    <property name="removeAbandoned" value="true"/>  
+    <property name="removeAbandonedTimeout" value="60"/>  
+    <property name="logAbandoned" value="true"/> 
+  </bean>  
+  <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+    <property name="url" value="jdbc:oracle:thin:@172.16.221.244:1521:ZBKF"/>
+    <property name="username" value="scyw"/>
+    <property name="password" value="scyw"/>
+    <property name="maxActive" value="100"/>
+    <property name="maxIdle" value="30"/>
+    <property name="maxWait" value="5000"/>
+    <property name="defaultAutoCommit" value="true"/>
+    <property name="removeAbandoned" value="true"/>
+    <property name="removeAbandonedTimeout" value="60"/>
+    <property name="logAbandoned" value="true"/>
+  </bean>
+</beans>

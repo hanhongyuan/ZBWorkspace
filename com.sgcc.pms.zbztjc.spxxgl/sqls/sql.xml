@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-Maping>
+
+<!-- 查询输电视频装置  -->
+	<select id="selectSdvideoDevice">
+select cast(tv.obj_id as varchar2(42)), t.WSDEPMC ssdw, t.LINKEDLINENAME, t.LINKEDPOLENAME, t.DEVICENAME, t.manufacturer, decode(tv.videostate,'online','在线','offline','离线','invalid','无效') videostate, cast('查看' as varchar2(42)) JCXX,to_char(T.RUNDATE,'yyyy-MM-dd HH24:mi:ss') rundate,tv.videocode,tv.sftypt,tv.devicecode from mw_app.cmsv_linedevice_xtf t left join mw_app.cmst_videostatusinfo_xt tv on t.DEVICECODE = tv.devicecode  where tv.type = 'sd' and t.WSDEPMC is not null and t.DEVICEVOLTAGE is not null AND t.LINKEDEQUIPMENTDY IS NOT NULL and t.MONITORINGTYPES like '%018003%' 
+	</select>
+	
+	<!-- 查询变电视频装置  -->
+	<select id="selectBdvideoDevice">
+select cast(tv.obj_id as varchar2(42)), t.WSDEPMC ssdw, t.LINKEDstationname, t.DEVICENAME, t.MANUFACTURER, decode(tv.videostate, 'online', '在线', 'offline', '离线', 'invalid', '无效') videostate, cast('查看' as varchar2(42)) JCXX, to_char(T.RUNDATE, 'yyyy-MM-dd HH24:mi:ss') rundate, tv.videocode, tv.sftypt, tv.devicecode from mw_app.cmsv_transfdevice_xtf t right join mw_app.cmst_videostatusinfo_xt tv on t.DEVICECODE = tv.devicecode where tv.type = 'bd' and t.WSDEPMC is not null 
+	</select>
+</sql-Maping>

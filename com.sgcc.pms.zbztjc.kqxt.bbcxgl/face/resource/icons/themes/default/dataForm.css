@@ -1,0 +1,122 @@
+.mx .dataForm {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.mx .dataForm .formTable {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.mx .dataForm .formTable>tbody>tr>td {
+	vertical-align: top;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.mx .dataForm .formTable>tbody>tr>td.field span.red {
+	color:#f00;
+}
+
+.mx .dataForm .formPanel {
+	position: relative;
+}
+
+.mx .dataForm .formPanel>#top {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	top: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-left: 8px;
+	line-height: 40px;
+	background-color: #323B4C;
+	background-image: url(images/form_top_bg.png);
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+.mx .dataForm .formPanel>#top>#icon {
+	vertical-align: middle;
+}
+
+.mx .dataForm .formPanel>#top>h1 {
+	color: white;
+	font-size: larger;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.mx .dataForm .formPanel>#body {
+	position: absolute;
+	top: 40px;
+	bottom: 36px;
+	width: 100%;
+	overflow-y: auto;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.mx .dataForm .formPanel>#bottom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 36px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	line-height: 36px;
+	background-color: #323B4C;
+	background-image: url(images/form_bottom_bg.png);
+	background-repeat: repeat-x;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.mx .dataForm .formPanel>#bottom button,.formPanel>#bottom input[type=button]
+	{
+	border: 1px solid #3a4047;
+}
+
+.mx .dataForm .formPanel>#bottom .buttonGroup {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.mx .dataForm .formPanel>#bottom #leftButtonGroup {
+	float: left;
+}
+
+.mx .dataForm .formPanel>#bottom #rightButtonGroup {
+	float: right;
+}
+
+.mx .dataForm td.fieldGroup {
+	
+}
+
+.mx .dataForm .field {
+	
+}
+
+.mx .dataForm .field>.container {
+	position: relative;
+}
+
+.mx .dataForm .field>.container>#label {
+	overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    padding-right: 6px;
+}
+
+.mx .dataForm .field>.container>#label>#tip{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	white-space: nowrap;
+	margin-right: 4px;
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<platform-dynamic-policy>
+
+	<deploy-mode>develop</deploy-mode>
+
+	<service-candidate-mode>true</service-candidate-mode>
+
+	<default-servlet-extensions>/rest/*</default-servlet-extensions>
+	
+	<web>
+		<app-resource-cache maxlength="-1" >-1</app-resource-cache>
+		<url-first-cache>-1</url-first-cache>
+		<black-url-cache-mode>false</black-url-cache-mode>
+	</web>
+    
+    
+    <module-repository id="workspace" path="E:\ZBWorkspace">
+		<module>persistenceEX</module>
+		<module>com.sgcc.pms.zbztjc.jcxxgl</module>
+		<module>com.sgcc.pms.zbztjc.jczhgl</module>
+		<module>com.sgcc.pms.zbztjc.jrxxgl</module>
+		<module>com.sgcc.pms.zbztjc.kqxt.jcgjgl</module>
+		<module>com.sgcc.pms.zbztjc.kqxt.jcxxcx</module>
+		<module>com.sgcc.pms.zbztjc.kqxt.jczzgl</module>
+		<module>com.sgcc.pms.zbztjc.kqxt.spxxgl</module>
+		<module>com.sgcc.pms.zbztjc.spxxgl</module>
+		<module>com.sgcc.pms.zbztjc.kqxt.bbcxgl</module>
+		<module>com.sgcc.pms.zbztjc.util</module>
+		<module>com.sgcc.pms.zbztjc.ztkhgl</module>
+    </module-repository>
+	
+	
+</platform-dynamic-policy>

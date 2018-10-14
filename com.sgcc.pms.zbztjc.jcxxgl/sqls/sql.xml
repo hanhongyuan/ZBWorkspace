@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-Maping>
+
+	<!-- 查询变电告警信息处理查询的SQL代码 -->
+	<select id="dicts_ssdw">
+		SELECT WSID ,WSMC FROM MW_APP.CMST_ZB_COMM_WSPZ ORDER BY ZDYPX
+	</select>
+	
+	
+	<select id="dicts_ssxt">
+		SELECT WSID ,WSMC FROM MW_APP.CMST_ZB_COMM_WSPZ ORDER BY ZDYPX
+	</select>
+	
+	<select id="dicts_dydj">
+		SELECT DYDJBM,DYDJMC FROM CMST_SB_PZ_SBDYDJ order by DYDJBM
+	</select>
+	
+	<select id="dicts_jclx">
+		select typecode dm,typename mc from mw_app.cmst_monitoringtype where typecode like '01%' and typecode not in ('018002','018003')
+	</select>
+	
+	<select id="dicts_jclxBd">
+		SELECT typecode dm, typename mc from mw_app.cmst_monitoringtype where typecode like '02%' and typecode not in ('021007', '025001','026001')
+	</select>
+	
+	<select id="dicts_gjjb">
+		SELECT '1' dm, TO_NCHAR('告警') mc FROM dual UNION ALL SELECT '2' dm, TO_NCHAR('报警') mc FROM dual
+	</select>
+	
+	<select id="select_SDgjxxcxtjQuery_queryDatailById">
+		SELECT DISTINCT to_nchar(a.obj_id) objId,a.devicecode,a.linkedline,l.linkedlinename,a.MONITORINGTYPE,m.typename,a.alarmtime,
+	    a.alarmlevel,a.alarmmessage,a.ishandled,a.linkedpole,l.linkedpolename,decode(trim(a.alarmsource), 'E', '一次设备告警', 'M', '监测装置告警') alarmsource,a.alarmconstrue,a.disposaladvice,
+	    a.disposaltime,a.disposalresult,a.transactor,a.alarmendtime,a.continuancetime,
+	    a.remarks FROM cmst_alarmlog  a left join cmst_monitoringtype m on m.TYPECODE = a.MONITORINGTYPE left join cmst_linedevice l on l.linkedline = a.linkedline  AND l.linkedpole = a.linkedpole  where a.MONITORINGTYPE LIKE '01%' and a.obj_id =  
+	</select>
+	
+	<select id="select_BDgjxxcxtjQuery_queryDatailById">
+		SELECT TO_NCHAR(b.OBJ_ID) OBJ_ID,b.LINKEDSTATIONNAME,b.LINKEDEQUIPMENTNAME,b.DEVICECODE,b.MONITORINGTYPE,
+	    b.TYPENAME,b.ALARMTIME,b.ALARMENDTIME,b.CONTINUANCETIME,b.ALARMLEVEL,b.ALARMMESSAGE,
+	    b.ALARMRULE,decode(trim(b.ALARMSOURCE), 'E', '一次设备告警', 'M', '监测装置告警') ALARMSOURCE,
+	    b.ALARMCONSTRUE,b.DISPOSALADVICE,b.DISPOSALTIME,b.DISPOSALRESULT,
+	    b.TRANSACTOR,b.CHECKTIME,b.CHECKEDBY,b.ISHANDLED,b.REMARKS FROM mw_app.cmsv_alarm_Bdinfo_XTF b where b.MONITORINGTYPE LIKE '02%' and b.obj_id = 
+	</select>	
+	
+	<select id="select_BDmonitorRecord_queryMonitorRecordById">
+		SELECT m.monitoringdatatable,m.typecode FROM cmst_monitoringtype m WHERE m.typecode = 
+		(SELECT a.monitoringtype FROM cmst_transfalarmlog a WHERE a.obj_id = ? ) AND m.typecode LIKE '02%'
+	</select>
+	
+	<select id="querySumLine">
+		select QBWF + QBWF + SBSF + EBEF + YBYF + LLF + YQF + ZLYQF + ZLBBF +
+         ZLLBLF + ZLWBF + ZLSBF + ZLYEWF + ZLYBEF XLZS, 
+         YQF,QBWF,WBF,SBSF,EBEF,YBYF,LLF,ZLBBF,ZLWBF,ZLSBF 
+    from (select sum(TS1) QBWF,sum(TS2) WBF,sum(TS3) SBSF, 
+                 sum(TS4) EBEF,sum(TS5) YBYF,sum(TS6) LLF, 
+                 sum(TS13) YQF,sum(TS86) ZLYQF,sum(TS85) ZLBBF, 
+                 sum(TS84) ZLLBLF,sum(TS83) ZLWBF,sum(TS82) ZLSBF, 
+                 sum(TS81) ZLYEWF,sum(TS80) ZLYBEF from mw_app.MWT_ZB_XLGKSJ)
+	</select>
+	<select id="queryTable_01">
+		with tab as (select de.dwmc,de.dwbm,
+     decode(SDZYZZS,null,0,SDZYZZS) SDZYZZS, 
+     decode(SDTYZZS,null,0,SDTYZZS) SDTYZZS, 
+     decode(SDZYZZS+SDTYZZS,null,0,SDZYZZS+SDTYZZS) SDFYZZS 
+     from 
+     (select de.WSMC dwmc, 
+            de.WSID dwbm, 
+            de.ZDYPX xh, 
+            sum(decode(a.status, '00501', 1, 0)) SDZYZZS, 
+            sum(decode(a.status, '00502', 1, 0)) SDTYZZS 
+      from mw_app.cmst_linedevice       a, 
+           mw_app.cmst_devicemonitype   b, 
+           mw_app.cmst_zb_comm_wspz de 
+     where a.devicecode = b.linkeddevice(+) 
+       and de.WSID = a.linkedprovicedept(+) 
+       and b.monitoringtype like '01%' 
+       and b.monitoringtype !='018003' 
+       and b.monitoredcomponent is not null 
+       and a.linkedline is not null 
+       and a.linkedprovicedept is not null 
+       and a.linkedequipmentdy in ('37','36','35','34','33','32','30','85','84','83', '82','81','80') 
+     group by de.WSMC, de.WSID, de.ZDYPX) sd, 
+     (select WSMC dwmc, 
+             WSID  dwbm, 
+             ZDYPX xh from mw_app.cmst_zb_comm_wspz) de 
+       where sd.xh(+) = de.xh 
+       and de.dwbm!='8a812897493378a001495675eff36612' order by de.xh) 
+    select '国家电网公司' DWMC,'hj' DWBM , 
+    SUM(SDZYZZS) SDZYZZS,SUM(SDTYZZS) SDTYZZS,SUM(SDFYZZS) SDFYZZS 
+    from tab 
+    union all 
+    select * from tab
+	</select>
+	<select id="queryTable_02">
+		with tab as(select de.dwmc,de.dwbm,
+               decode(YQF,null,0,YQF)YQF, 
+               decode(QBWF,null,0,QBWF)QBWF, 
+               decode(WBF,null,0,WBF)WBF, 
+               decode(SBSF,null,0,SBSF)SBSF, 
+               decode(EBEF,null,0,EBEF)EBEF, 
+               decode(YBYF,null,0,YBYF)YBYF, 
+               decode(LLF,null,0,LLF)LLF, 
+               decode(ZLBBF,null,0,ZLBBF)ZLBBF, 
+               decode(ZLLBLF,null,0,ZLLBLF)ZLLBLF, 
+               decode(ZLWBF,null,0,ZLWBF)ZLWBF, 
+               decode(ZLSBF,null,0,ZLSBF)ZLSBF, 
+               decode(ZLYBEWF,null,0,ZLYBEWF)ZLYBEWF, 
+               decode(ZLYBEF,null,0,ZLYBEF)ZLYBEF, 
+               decode(YQF+QBWF+WBF+SBSF+EBEF+YBYF+LLF+ZLBBF+ZLLBLF+ZLWBF+ZLSBF+ZLYBEWF+ZLYBEF,null,0,YQF+QBWF+WBF+SBSF+EBEF+YBYF+LLF+ZLBBF+ZLLBLF+ZLWBF+ZLSBF+ZLYBEWF+ZLYBEF) DSUM, 
+               de.xh XH 
+        from (select de.WSMC dwmc, 
+                de.WSID dwbm, 
+                de.ZDYPX xh, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '37', 1, 0)) YQF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '36', 1, 0)) QBWF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '35', 1, 0)) WBF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '34', 1, 0)) SBSF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '33', 1, 0)) EBEF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '32', 1, 0)) YBYF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '30', 1, 0)) LLF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '85', 1, 0)) ZLBBF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '84', 1, 0)) ZLLBLF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '83', 1, 0)) ZLWBF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '82', 1, 0)) ZLSBF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '81', 1, 0)) ZLYBEWF, 
+                sum(decode(a.LINKEDEQUIPMENTDY, '80', 1, 0)) ZLYBEF 
+                from mw_app.cmst_linedevice a,mw_app.cmst_zb_comm_wspz de, 
+                mw_app.cmst_devicemonitype d 
+         where de.WSID = a.linkedprovicedept(+) 
+               and a.devicecode = d.linkeddevice(+) 
+               and d.monitoringtype like '01%' 
+               and d.monitoredcomponent is not null 
+               and d.monitoringtype !='018003' 
+               and a.linkedline is not null 
+               and a.linkedprovicedept is not null 
+               and a.status !='00503' 
+               group by de.WSMC, de.WSID, de.ZDYPX ) sd, 
+        (select WSMC dwmc, 
+                 WSID  dwbm, 
+                ZDYPX xh from mw_app.cmst_zb_comm_wspz ) de 
+       where sd.xh(+) = de.xh 
+       and de.dwbm!='8a812897493378a001495675eff36612' order by de.xh) 
+        select '国家电网公司' DWMC, 
+               sum(YQF) YQF,sum(QBWF) QBWF,sum(WBF) WBF, 
+               sum(SBSF) SBSF,sum(EBEF) EBEF,sum(YBYF) YBYF, 
+               sum(LLF) LLF,sum(ZLBBF) ZLBBF,sum(ZLLBLF) ZLLBLF,sum(ZLWBF) ZLWBF, 
+               sum(ZLSBF) ZLSBF ,sum(ZLYBEWF) ZLYBEWF,sum(ZLYBEF) ZLYBEF,sum(DSUM) DSUM 
+        from tab 
+        union all 
+        select DWMC,YQF,QBWF,WBF,SBSF,EBEF,YBYF,LLF,ZLBBF,ZLLBLF,ZLWBF,ZLSBF,ZLYBEWF,ZLYBEF,DSUM from tab 
+	</select>	
+		<select id="queryTable_03">
+		with tab as( select m.typename,m.typecode,
+            decode(t.SDZYZZS,null,0,t.SDZYZZS) SDZYZZS, 
+            decode(t.SDTYZZS,null,0,t.SDTYZZS) SDTYZZS, 
+            decode(SDZYZZS+SDTYZZS,null,0,SDZYZZS+SDTYZZS) SDFYZZS 
+         from 
+         (select b.monitoringtype, 
+          sum(decode(a.status, '00501', 1, 0)) SDZYZZS, 
+          sum(decode(a.status, '00502', 1, 0)) SDTYZZS 
+       from mw_app.cmst_linedevice a,mw_app.cmst_devicemonitype b 
+       where a.devicecode = b.linkeddevice(+) 
+       and b.monitoredcomponent is not null 
+       and a.linkedline is not null 
+       and a.linkedequipmentdy in ('37','36','35','34','33','32','30','85','84','83', '82','81','80') 
+       and a.linkedprovicedept is not null group by b.monitoringtype) t, 
+       (select typename,typecode 
+         from mw_app.cmst_monitoringtype 
+         where typecode like '01%' 
+         and typecode !='018003') m 
+       where m.typecode=t.monitoringtype) 
+       select typename,SDZYZZS,SDTYZZS,SDFYZZS from tab 
+       union all 
+       select '合计数量' TYPENAME,sum(SDZYZZS) SDZYZZS,sum(SDTYZZS) SDTYZZS,sum(SDFYZZS) SDFYZZS 
+       from tab
+	</select>
+<select id="queryTable_04">
+		       SELECT * FROM( 
+       SELECT '国家电网公司' as DWMC, 
+              COUNT(TAB.OBJ_ID) ZTS,0 as XH, 
+              Rtrim(to_char(decode((SUM(ALLSCORED)/COUNT(TAB.OBJ_ID)),null,0,(SUM(ALLSCORED)/COUNT(TAB.OBJ_ID))*100),'fm9999990.9'),'.') PJF, 
+              Rtrim(to_char(decode(SUM(JRL) / COUNT(TAB.OBJ_ID),null,0,(SUM(JRL) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' ZZJRL, 
+              Rtrim(to_char(decode(SUM(WHL) / COUNT(TAB.OBJ_ID),null,0,(SUM(WHL) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' WHL, 
+              Rtrim(to_char(decode(SUM(DATAACCESSRATE) / COUNT(TAB.OBJ_ID),null,0,(SUM(DATAACCESSRATE) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' SJJRL, 
+              Rtrim(to_char(decode(SUM(DATAARACCURACYRATE) / COUNT(TAB.OBJ_ID),null,0,(SUM(DATAARACCURACYRATE) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' SJZQL 
+              FROM TAB 
+    UNION ALL 
+          SELECT dep.WSMC as DWMC, 
+                       COUNT(TAB.OBJ_ID) ZTS, dep.ZDYPX as xh, 
+                       Rtrim(to_char(decode((SUM(ALLSCORED)/COUNT(TAB.OBJ_ID)),null,0,(SUM(ALLSCORED)/COUNT(TAB.OBJ_ID))*100),'fm9999990.9'),'.') PJF, 
+                       Rtrim(to_char(decode(SUM(JRL) / COUNT(TAB.OBJ_ID),null,0,(SUM(JRL) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' ZZJRL, 
+                       Rtrim(to_char(decode(SUM(WHL) / COUNT(TAB.OBJ_ID),null,0,(SUM(WHL) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' WHL, 
+                       Rtrim(to_char(decode(SUM(DATAACCESSRATE) / COUNT(TAB.OBJ_ID),null,0,(SUM(DATAACCESSRATE) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' SJJRL, 
+                       Rtrim(to_char(decode(SUM(DATAARACCURACYRATE) / COUNT(TAB.OBJ_ID),null,0,(SUM(DATAARACCURACYRATE) / COUNT(TAB.OBJ_ID))*100),'fm99999990.99'),'.')|| '%' SJZQL 
+            FROM TAB, mw_app.cmst_zb_comm_wspz dep 
+            where TAB.LINKEDPROVICEDEPT(+) = dep.WSID 
+            and dep.WSID!='8a812897493378a001495675eff36612' 
+            group by WSMC,dep.ZDYPX ) order by xh
+	</select>
+
+</sql-Maping>

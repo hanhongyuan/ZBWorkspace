@@ -1,0 +1,360 @@
+/**
+ ******************************************一级TabControl***********************************
+ */
+.mx .tabControl
+{
+	position:relative;
+	cursor:default; 
+}
+.mx .tabControl > #head
+{
+	position:absolute;
+	left:0;
+	top:0;		
+	width:100%;	
+	height:30px;/*height:29px*/
+	cursor:default;		
+	white-space:nowrap;
+	overflow:hidden;
+	background: #e0ecff;
+	border-bottom: 1px solid #8ebce6;
+}
+
+
+
+.mx .tabControl > #head > div.head-right
+{
+	position: absolute;
+	width: 12px;
+	height: 100%;
+	top:0;
+	right:0;
+	border:1px solid #B6BCCC;
+	cursor: pointer;
+	display: none;
+ 	background:url(images/main_menu_scroll_right.png) no-repeat  center center; 
+	background-color:#F0F1F0;
+	border-radius:0 3px 3px 0;
+	z-index:2;
+}
+
+.mx .tabControl > #head > div.head-left
+{
+	position: absolute;
+	width: 12px;
+	height: 100%;
+	top:0;
+	left:0;
+	border:1px solid #B6BCCC;
+	cursor: pointer;
+	display: none;
+	background:url(images/main_menu_scroll_left.png) no-repeat  center center; 
+	background-color:#F0F1F0;
+	border-radius:3px 0 0 3px;
+	z-index:2;
+}
+
+.mx .tabControl > #head > a
+{
+	position:relative;
+	display:inline-block;
+	height:27px;
+	line-height:25px;		
+	border-left:1px solid #898C95;
+	border-top:1px solid #898C95;
+	border-right:1px solid #898C95;
+	box-shadow:inset 0 0 3px white; -moz-box-shadow:inset 0 0 3px white; -webkit-box-shadow:inset 0 0 3px white;
+	text-decoration:none;		
+	padding-left:8px;
+	padding-right:8px;
+	margin-top:2px;
+	margin-right:-1px;
+	background:url(images_new/4.1-3.png) repeat-x;/*images/tab_control_button_bg.png*/	
+	border-radius:5px 5px 0px 0px; -moz-border-radius:5px 5px 0px 0px; -webkit-border-radius:5px 5px 0px 0px;	
+	color:black;
+	cursor:default;
+	user-select:none; -moz-user-select:none; -webkit-user-select:none;
+}
+.mx .tabControl > #head > a:hover
+{		
+	border-left:1px solid #3C7FB1;
+	border-top:1px solid #3C7FB1;
+	border-right:1px solid #3C7FB1;	
+	background:url(images_new/4.1-7.png) repeat-x;
+	box-shadow:inset 0 0 3px white; -moz-box-shadow:inset 0 0 3px white; -webkit-box-shadow:inset 0 0 3px white;	
+}
+.mx .tabControl > #head > a.selected
+{
+	height:27px;/*top: -2px;height:29px;*/
+	background-image:none;
+	background-color:#FFFFFF;
+	z-index:1;
+	color:#128baa;
+	/* background:url(images_new/4.1-7.png) repeat-x;		 */
+}
+.mx .tabControl > #head > a.selected:hover
+{
+	border-left:1px solid #898C95;
+	border-top:1px solid #898C95;
+	border-right:1px solid #898C95;
+}
+
+.mx .tabControl > #body
+{
+	position:absolute;
+	border:1px solid #898C95;	
+	top:28px;
+	width:100%;	   
+	bottom:0;
+	overflow:hidden;
+	background-color:#FFFFFF;
+	box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;
+	padding: 0px;/*8px*/
+}
+
+
+.mx .tabControl > #body > div
+{
+	box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;	
+    width:100%;
+    height:100%;
+	overflow:auto;
+}
+
+.mx .tabControl #head > a > .tab-icon
+{
+	position: relative;
+	display:inline-block;
+	vertical-align:middle;
+	width: 16px;
+	height: 16px;
+	margin-right: 3px;
+	background: no-repeat;
+}
+
+.mx .tabControl #head > a > .tab-text
+{
+	position: relative;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right:1px;/*5px*/
+	margin-left:1px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	min-width:20px; 
+	max-width:100%;/*120px*/
+	font-size: 13px;
+}
+
+.mx .tabControl #head > a > .tab-close-icon
+{
+	position: absolute;
+	display:inline-block;
+	right:2px;
+	top:6px;
+	width: 12px;
+	height: 12px;
+	margin-right:3px;
+	background: url(images/tab-close.png) no-repeat center center;
+}
+
+.mx .tabControl #head > a > .tab-close-icon:hover
+{
+	position: absolute;
+	display:inline-block;
+	width: 12px;
+	height: 12px;
+	right:2px;
+	top:6px;
+	background: url(images/tab-close-hover.png) no-repeat center center;
+}
+
+
+
+
+
+
+
+
+/**
+ ******************************************二级TabControl***********************************
+ */
+ .mx .tabControl .tabControl
+{
+	position:relative;
+	cursor:default; 
+}
+.mx .tabControl .tabControl > #head
+{
+	position:absolute;
+	left:0;
+	top:0;		
+	width:100%;	
+	height:25px;
+	cursor:default;		
+	white-space:nowrap;
+	overflow:hidden;
+	margin-top:3px;
+	margin-bottom:3px;
+	padding-right: 3px;
+	background: none;
+	border: 0px;
+	margin-left: 5px;
+}
+
+
+
+.mx .tabControl .tabControl > #head > div.head-right
+{
+	position: absolute;
+	width: 12px;
+	height: 100%;
+	top:0;
+	right:0;
+	border:1px solid #B6BCCC;
+	cursor: pointer;
+	display: none;
+ 	background:url(images/main_menu_scroll_right.png) no-repeat  center center; 
+	background-color:#F0F1F0;
+	border-radius:0 3px 3px 0;
+	z-index:2;
+}
+
+.mx .tabControl .tabControl > #head > div.head-left
+{
+	position: absolute;
+	width: 12px;
+	height: 100%;
+	top:0;
+	left:0;
+	border:1px solid #B6BCCC;
+	cursor: pointer;
+	display: none;
+	background:url(images/main_menu_scroll_left.png) no-repeat  center center; 
+	background-color:#F0F1F0;
+	border-radius:3px 0 0 3px;
+	z-index:2;
+}
+
+.mx .tabControl .tabControl > #head > a
+{
+	position:relative;
+	display:inline-block;
+	height:25px;
+	line-height:25px;		
+	border-left:1px solid #898C95;
+	border-top:1px solid #898C95;
+	border-right:1px solid #898C95;
+	box-shadow:inset 0 0 3px white; -moz-box-shadow:inset 0 0 3px white; -webkit-box-shadow:inset 0 0 3px white;
+	text-decoration:none;		
+	padding-left:5px;
+	padding-right:5px;
+	margin-top:0px;/*2px*/
+	margin-right:3px;/*-1px*/
+	background:url(images_new/4.2-4.png) repeat-x;/*images/tab_control_button_bg.png*/	
+	border-radius:11px; -moz-border-radius:11px; -webkit-border-radius:11px;	
+	color:black;
+	cursor:default;
+	user-select:none; -moz-user-select:none; -webkit-user-select:none;
+}
+.mx .tabControl .tabControl > #head > a:hover
+{		
+	border-left:1px solid #3C7FB1;
+	border-top:1px solid #3C7FB1;
+	border-right:1px solid #3C7FB1;	
+	background:url(images_new/4.2-7.png) repeat-x;
+	box-shadow:inset 0 0 3px white; -moz-box-shadow:inset 0 0 3px white; -webkit-box-shadow:inset 0 0 3px white;	
+}
+.mx .tabControl .tabControl > #head > a.selected
+{
+	top: 0px;/*-2*/
+	height:25px;
+	line-height:25px;
+	background-image:none;
+	background-color:#FFFFFF;
+	z-index:1;
+	color:#128baa;
+	background:url(images_new/4.2-7-1.png) repeat-x;	
+}
+.mx .tabControl .tabControl > #head > a.selected:hover
+{
+	border-left:1px solid #898C95;
+	border-top:1px solid #898C95;
+	border-right:1px solid #898C95;
+}
+
+.mx .tabControl .tabControl > #body
+{
+	position:absolute;
+	border:1px solid #898C95;	
+	top:31px;
+	width:100%;	   
+	bottom:0;
+	overflow:hidden;
+	background-color:#FFFFFF;
+	box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;
+	padding: 0px;/*8px*/
+}
+
+
+.mx .tabControl .tabControl > #body > div
+{
+	box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;	
+    width:100%;
+    height:100%;
+	overflow:auto;
+}
+
+.mx .tabControl .tabControl #head > a > .tab-icon
+{
+	position: relative;
+	display:inline-block;
+	vertical-align:middle;
+	width: 16px;
+	height: 16px;
+	margin-right: 3px;
+	background: no-repeat;
+}
+
+.mx .tabControl .tabControl #head > a > .tab-text
+{
+	position: relative;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right:12px;
+	margin-left:12px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	min-width:20px; 
+	max-width:100%;/*120px*/
+	text-align: center;
+	font-size: 12px;
+	margin-top:-1px;
+}
+
+.mx .tabControl .tabControl #head > a > .tab-close-icon
+{
+	position: absolute;
+	display:inline-block;
+	right:2px;
+	top:6px;
+	width: 12px;
+	height: 12px;
+	margin-right:3px;
+	background: url(images/tab-close.png) no-repeat center center;
+}
+
+.mx .tabControl .tabControl #head > a > .tab-close-icon:hover
+{
+	position: absolute;
+	display:inline-block;
+	width: 12px;
+	height: 12px;
+	right:2px;
+	top:6px;
+	background: url(images/tab-close-hover.png) no-repeat center center;
+}
+ 
+ 

@@ -1,0 +1,271 @@
+.mx .window,.mx.window {
+	position: absolute;
+	background: white;
+	display: none;
+	min-width: 160px;
+	min-height: 160px;
+	border: 1px solid #9b9b9b;
+	border-left: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+	border-radius: 6px 6px 0px 0px;
+	-moz-border-radius: 6px 6px 0px 0px;
+	-webkit-border-radius: 6px 6px 0px 0px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.mx .window.active {
+	
+}
+
+.mx .window>#head,.mx.window>#head {
+	position: relative;
+	height: 25px;
+	line-height: 25px;
+	background: url(images/window_head_bg.png);
+	border-bottom: 1px solid #BABAC0;
+	overflow: hidden;
+	cursor: default;
+	border-radius: 6px 6px 0px 0px;
+	-moz-border-radius: 6px 6px 0px 0px;
+	-webkit-border-radius: 6px 6px 0px 0px;
+}
+
+.mx .window.dragging>#head,.mx.window.dragging>#head {
+	cursor: default;
+}
+
+.mx .window>#head>#title,.mx.window>#head>#title {
+	color: #6a6a6a;
+	width: 100%;
+	font-size: 14px;
+	text-align: left;
+	text-shadow: 0 1px 1px white;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: middel;
+	font-weight: bold;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.mx .window.active>#head>#title,.mx.window.active>#head>#title {
+	color: black;
+	position: absolute;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	left: 10px;
+	right: 100px;
+}
+
+.mx .window>#head>#controlBox,.mx.window>#head>#controlBox {
+	position: absolute;
+	top: 3px;
+	right: 4px;
+}
+
+.mx .window>#head>#controlBox>#windowMinStateButton,.mx.window>#head>#controlBox>#windowMinStateButton
+	{
+	float: left;
+	width: 21px;
+	height: 21px;
+	border-right: none;
+	margin-right: -5px;
+	background: url(images/window_min.png) no-repeat center center;
+}
+
+.mx .window.active>#head>#controlBox>#windowMinStateButton,.mx.window.active>#head>#controlBox>#windowMinStateButton
+	{
+	background: url(images/window_active_min.png) no-repeat center center;
+}
+
+.mx .window>#head>#controlBox>#windowMinStateButton :hover,.mx.window>#head>#controlBox>#windowMinStateButton
+	:hover {
+	background-image: url(images/window_min_hover.png);
+}
+
+.mx .window>#head>#controlBox>#windowStateButton,.mx.window>#head>#controlBox>#windowStateButton
+	{
+	float: left;
+	width: 21px;
+	height: 21px;
+	border-right: none;
+	margin-right: -5px;
+	background: url(images/window_max.png) no-repeat center center;
+}
+
+.mx .window.active>#head>#controlBox>#windowStateButton,.mx.window.active>#head>#controlBox>#windowStateButton
+	{
+	background: url(images/window_active_max.png) no-repeat center center;
+}
+
+.mx .window>#head>#controlBox>#windowStateButton :hover,.mx.window>#head>#controlBox>#windowStateButton
+	:hover {
+	background-image: url(images/window_max_hover.png);
+}
+
+.mx .window>#head>#controlBox>#closeButton,.mx.window>#head>#controlBox>#closeButton
+	{
+	float: left;
+	width: 21px;
+	height: 21px;
+	background: url(images/close.png);
+}
+
+.mx .window>#head>#controlBox>#closeButton :hover,.mx.window>#head>#controlBox>#closeButton
+	:hover {
+	background: url(images/close_hover.png);
+}
+
+.mx .window>#body,.mx.window>#body {
+	overflow: auto;
+	position: absolute;
+	padding: 4px;
+	top: 25px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.mx .window.maximize,.mx.window.maximize {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.mx .window.maximize>#body,.mx.window.maximize>#body {
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+.mx .window.maximize>#statusBar,.mx.window.maximize>#statusBar {
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+.mx .window>#statusBar,.mx.window>#statusBar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 25px;
+	line-height: 25px;
+	border-top: 1px solid #BABAC0;
+	background-color: #F1EDED;
+	padding-left: 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: default;
+}
+
+.mx .borderlessWindow,.mx.borderlessWindow {
+	display: none;
+	position: absolute;
+	min-width: 160px;
+	min-height: 160px;
+	background-color: white;
+	border: 1px solid #9b9b9b;
+	border-left: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+	box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px
+		rgba(0, 0, 0, 0.15);
+}
+
+.mx .borderlessWindow>#body,.mx.borderlessWindow>#body {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 8px;
+	padding-top: 12px;
+	box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mx .window>#loadingMask,.borderlessWindow>#loadingMask,.mx.window>#loadingMask,.borderlessWindow>#loadingMask
+	{
+	position: absolute;
+	z-index: 999990;
+	background: black;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.mx .window>#statusBar>.quickToolBar,.mx.window>#statusBar>.quickToolBar
+	{
+	padding-right: 8px;
+	margin-right: 8px;
+	position: relative;
+	top: 3px;
+	background: url(images/quick_tool_bar_separator.png) center right
+		no-repeat;
+}
+
+.mx .window.messageBox>#body>#top,.mx.window.messageBox>#body>#top {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 35px;
+	top: 0;
+	border-bottom: 1px solid #898C95;
+}
+
+.mx .window.messageBox>#body>#top>#top_left,.mx.window.messageBox>#body>#top>#top_left
+	{
+	width: 80px;
+	height: 100%;
+}
+
+.mx .window.messageBox #top #top_left .icontable {
+	width: 100%;
+	height: 100%;
+}
+
+.mx .window.messageBox>#body>#top>#top_right,.mx.window.messageBox>#body>#top>#top_right
+	{
+	position: absolute;
+	left: 80px;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: auto;
+	height: 100%;
+}
+
+.mx .window.messageBox>#body>#top>#top_right>table,.mx.window.messageBox>#body>#top>#top_right>table
+	{
+	width: 100%;
+	height: 100%;
+	cursor: default;
+}
+
+.mx .window.messageBox>#body>#bottom,.mx.window.messageBox>#body>#bottom
+	{
+	position: absolute;
+	height: 35px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-top: 1px solid white;
+	text-align: right;
+}
+
+.mx .window.messageBox>#body>#bottom>.buttonDiv,.mx.window.messageBox>#body>#bottom>.buttonDiv
+	{
+	margin-right: 8px;
+	margin-top: 7px;
+}
+
+.window.messageBox #top #top_left .icontable {
+	width: 100%;
+	height: 100%;
+}

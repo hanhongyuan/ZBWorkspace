@@ -1,0 +1,19 @@
+##################\u914d\u7f6e\u5ba2\u6237\u7aef\u5e94\u7528\u9700\u8981\u542f\u52a8\u7684\u5e73\u53f0\u516c\u5171\u5957\u4ef6\u6216\u4e1a\u52a1\u7cfb\u7edf###################
+#                                                                              #
+#\u7edf\u4e00\u5e94\u7528\u5f00\u53d1\u5e73\u53f0\u63d0\u4f9b\u4ee5\u4e0b\u53ef\u9009\u516c\u5171\u5957\u4ef6\uff1a                                                                                                                 #
+#gov\uff1a\u7cfb\u7edf\u6cbb\u7406                                                                                                                                                                               #
+#report\uff1a\u62a5\u8868                                                                                                                                                                                 #
+#taskdispatch\uff1a\u4efb\u52a1\u8c03\u5ea6                                                                                                                                                       # 
+#bpm\uff1a\u6d41\u7a0b\u96c6\u6210                                                                                                                                                                               #
+#uds\uff1a\u975e\u7ed3\u6784\u5316\u96c6\u6210                                                                                                                                                                     #
+#gis\uff1aGIS\u96c6\u6210                                                                                                                                                                                 #
+#\u4ee5\u4e0a\u516c\u5171\u5957\u4ef6\u9ed8\u8ba4\u4e0d\u542f\u52a8\uff0c\u5982\u679c\u8981\u542f\u52a8\u8fd9\u4e9b\u6a21\u5757\uff0c\u8bf7\u5728\u6b64\u6dfb\u52a0\u3010\u516c\u5171\u5957\u4ef6\u7684\u540d\u79f0 \u3011                           #
+#                                                                              #                                                                                                                                    #
+################################################################################
+#                                                                              #
+#\u5982\u679c\u8981\u542f\u52a8\u7edf\u4e00\u5b58\u653e\u5728\u670d\u52a1\u7aef\u7684\u4e1a\u52a1\u7cfb\u7edf\u6a21\u5757\uff0c\u8bf7\u5728\u6b64\u914d\u7f6e\u4e1a\u52a1\u7cfb\u7edf\u5b58\u653e\u7684\u76ee\u5f55\uff0c                            #
+#\u4f8b\u5982\uff1a\u5728\u670d\u52a1\u7aef\u7684WEB-INF\repository\application\u76ee\u5f55\u4e0b\u6709\u4e00\u4e2a\u5b50\u76ee\u5f55sgerp-app,      #
+#\u91cc\u9762\u5b58\u653e\u7684\u662f\u4e1a\u52a1\u7cfb\u7edf\u6a21\u5757\uff0c\u5982\u679c\u8981\u542f\u52a8\u8fd9\u4e9b\u6a21\u5757\uff0c\u8bf7\u5728\u6b64\u6dfb\u52a0\u3010\u5b50\u76ee\u5f55\u540d\u79f0\u3011 sgerp-app   #
+#                                                                              #
+################################################################################
+bpm

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 状态监测 -->
+	<bean id="sessionFactoryZTJC" class="com.sgcc.uap.kernel.hibernate.ModuleSessionFactoryBean"
+		autowire="byName">
+		<property name="lobHandler">
+			<ref local="oracleLobHandler" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle10gDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">100</prop>
+			</props>
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSourceZTJC" />
+		</property>
+	</bean>
+
+
+	<bean id="transactionManagerZTJC"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="dataSource">
+			<ref bean="dataSourceZTJC" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactoryZTJC" />
+		</property>
+	</bean>
+	<bean id="hibernateDaoSupportZTJC" class="com.sgcc.uap.persistence.support.HibernateDaoSupport"
+		autowire="byName">
+		<property name="maxResults" value="2000" />
+		<property name="sessionFactory">
+			<ref bean="sessionFactoryZTJC" />
+		</property>
+	</bean>
+
+	<bean id="baseDaoZTJC" class="com.sgcc.uap.persistence.impl.BaseDaoImpl"
+		autowire="byName">
+		<property name="dataSource">
+			<ref bean="dataSourceZTJC" />
+		</property>
+		<property name="hibernateDaoSupport">
+			<ref bean="hibernateDaoSupportZTJC" />
+		</property>
+	</bean>
+
+	<bean id="hibernateDao_ztjc" class="com.sgcc.uap.persistence.impl.HibernateDaoImpl"
+		autowire="byName">
+		<property name="dataSource">
+			<ref bean="dataSourceZTJC" />
+		</property>
+		<property name="baseDao">
+			<ref bean="baseDaoZTJC" />
+		</property>
+		<property name="hibernateDaoSupport">
+			<ref bean="hibernateDaoSupportZTJC" />
+		</property>
+	</bean>
+
+	<!-- 供电电压 -->
+	<bean id="sessionFactory_gddy" class="com.sgcc.uap.kernel.hibernate.ModuleSessionFactoryBean"
+		autowire="byName">
+		<property name="lobHandler">
+			<ref local="oracleLobHandler" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle10gDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">100</prop>
+			</props>
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource_gddy" />
+		</property>
+	</bean>
+
+	<bean id="transactionManager_gddy"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="dataSource">
+			<ref bean="dataSource_gddy" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_gddy" />
+		</property>
+	</bean>
+
+	<bean id="hibernateDaoSupport_gddy" class="com.sgcc.uap.persistence.support.HibernateDaoSupport"
+		autowire="byName">
+		<property name="maxResults" value="2000" />
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_gddy" />
+		</property>
+	</bean>
+	<bean id="baseDao_gddy" class="com.sgcc.uap.persistence.impl.BaseDaoImpl"
+		autowire="byName">
+		<property name="dataSource">
+			<ref bean="dataSource_gddy" />
+		</property>
+		<property name="hibernateDaoSupport">
+			<ref bean="hibernateDaoSupport_gddy" />
+		</property>
+	</bean>
+	<bean id="hibernateDao_gddy" class="com.sgcc.uap.persistence.impl.HibernateDaoImpl"
+		autowire="byName">
+		<property name="dataSource">
+			<ref bean="dataSource_gddy" />
+		</property>
+		<property name="baseDao">
+			<ref bean="baseDao_gddy" />
+		</property>
+		<property name="hibernateDaoSupport">
+			<ref bean="hibernateDaoSupport_gddy" />
+		</property>
+	</bean>
+
+
+</beans> 

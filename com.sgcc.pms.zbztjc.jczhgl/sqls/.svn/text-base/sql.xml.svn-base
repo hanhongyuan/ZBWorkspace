@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-Maping>
+
+	<!-- 通用查询的SQL代码 -->
+	<select id="dicts_ssdw">
+		SELECT wsid,wsmc FROM MW_APP.CMST_ZB_COMM_WSPZ order by zdypx
+	</select>
+	<!-- 电压等级 -->
+	<select id="dicts_dydj">
+		SELECT dydjbm,dydjMC FROM MW_APP.CMST_SB_PZ_SBDYDJ where dydjbm in ('37','36','35','34','33','32','30','25','80','81','82','83','84','85','86') ORDER BY dydjbm 
+	</select>
+	<!-- 输电监测类型-->
+	<select id="dicts_jclx">
+		select typecode dm,typename mc from mw_app.cmst_monitoringtype where typecode like '01%'
+	</select>
+	<!-- 变电监测类型 -->
+	<select id="dicts_jclxBd">
+		select typecode dm,typename mc from mw_app.cmst_monitoringtype where typecode like '02%' 
+	</select>
+	<!-- 电缆监测类型 -->
+	<select id="dicts_jclxDl">
+		select typecode dm,typename mc from mw_app.cmst_monitoringtype where typecode like '03%' 
+	</select>
+	<!-- 运行状态 -->
+	<select id="dicts_yxzt">
+		select code,codename from mw_app.cmst_commoncode e where e.parentcode = '005' 
+	</select>
+	
+</sql-Maping>

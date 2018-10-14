@@ -1,0 +1,105 @@
+.mx .pageNaviBar
+{
+	padding-left:10px;/*border:1px solid #BABAC0;*/
+	background:#f4f4f4;/*url(images/pagenavibar_bg.png)*/
+	line-height:21px;
+	padding-top:1px;
+    white-space:nowrap;
+    overflow: hidden;
+    height:25px;
+    width:100%;
+    border:1px solid #CCCCCC;
+}
+
+.mx .pageNaviBar > span
+{
+	display:inline-block;
+	width:20px;/*30px*/
+	height:21px;
+	vertical-align:middle;
+	margin-left:2px;
+	margin-right:2px;
+	border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px;
+	float:left;
+}
+.mx .pageNaviBar > span.btn
+{
+	cursor:pointer;
+}
+
+.mx .pageNaviBar > span.btn:hover
+{
+	border:1px solid #BABAC0;
+}
+
+.mx .pageNaviBar > span#firstPage
+{
+	background:url("images_new/5.1-1.png") no-repeat center;/*images/pagenavibar_firstPage.png*/
+}
+.mx .pageNaviBar > span#firstPage.disabled
+{
+	background:url("images_new/5.1-5.png") no-repeat center;/*url(images/pagenavibar_firstPage_disabled.png)*/
+	border:none;
+	cursor:default;
+}
+
+.mx .pageNaviBar > span#previousPage
+{
+	background:url("images_new/5.1-2.png") no-repeat center;/*images/pagenavibar_previousPage.png*/
+}
+.mx .pageNaviBar > span#previousPage.disabled
+{
+	background:url("images_new/5.1-6.png") no-repeat center;/*images/pagenavibar_previousPage_disabled.png*/
+	border:none;
+	cursor:default;
+}
+
+.mx .pageNaviBar > span#nextPage
+{
+	background:url("images_new/5.1-3.png") no-repeat center;/*images/pagenavibar_nextPage.png*/
+}
+.mx .pageNaviBar > span#nextPage.disabled
+{
+	background:url("images_new/5.1-7.png") no-repeat center;/*images/pagenavibar_nextPage_disabled.png*/
+	border:none;
+	cursor:default;
+}
+
+.mx .pageNaviBar > span#lastPage
+{
+	background:url("images_new/5.1-4.png") no-repeat center;/*pagenavibar_lastPage.png*/
+}
+.mx .pageNaviBar > span#lastPage.disabled
+{
+	background:url("images_new/5.1-8.png") no-repeat center;/*pagenavibar_lastPage_disabled.png*/
+	border:none;
+	cursor:default;
+}
+
+.mx .pageNaviBar > span#refresh
+{
+	background:url("images/pagenavibar_refresh.png") no-repeat center;
+}
+
+.mx .pageNaviBar > span#refresh.disabled
+{
+	background:url("images/pagenavibar_refresh_disabled.png") no-repeat center;
+	border:none;
+	cursor:default;
+}
+
+.mx .pageNaviBar > span.separator
+{
+	background:url("images/pagenavibar_separator.png") no-repeat center;
+}
+
+.mx .pageNaviBar > span.pageIndexEditor
+{
+	width:auto;
+}
+
+.mx .pageNaviBar > span.pageInfo
+{
+	width:auto;
+	float:right;
+}

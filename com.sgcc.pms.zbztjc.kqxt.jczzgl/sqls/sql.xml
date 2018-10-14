@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-Maping>
+
+	<!-- 通用查询的SQL代码 -->
+	<select id="dicts_ssdw">
+		SELECT wsid,wsmc FROM MW_APP.cmst_zb_comm_wspz order by zdypx
+	</select>
+	<!-- 电压等级 -->
+	<select id="dicts_dydj">
+		SELECT dydjbm,dydjmc FROM MW_APP.CMST_SB_PZ_SBDYDJ where dydjbm in ('37','36','35','34','33','32','30','25','80','81','82','83','84','85','86')
+	</select>
+	<!-- 输电监测类型-->
+	<select id="dicts_jclx">
+		select typecode dm,typename mc from mw_app.cmst_monitoringtype where typecode like '01%' and typecode not in ('018002','018003') 
+	</select>
+	<!-- 变电监测类型 -->
+	<select id="dicts_jclxBd">
+		SELECT typecode dm, typename mc from mw_app.cmst_monitoringtype where typecode like '02%' and typecode not in ('021007', '025001','026001') 
+	</select>
+	<!-- 运行状态 -->
+	<select id="dicts_yxzt">
+		select code,codename from mw_app.cmst_commoncode e where e.parentcode = '005' and code != '00503'
+	</select>
+	
+	<select id="dicts_zbjclx">
+		select typecode dm,typename||'(输电)' mc from mw_app.cmst_monitoringtype  where typecode like '01%' union select typecode dm,typename||'(变电)' mc from mw_app.cmst_monitoringtype  where typecode like '02%' and  typecode not in('021007','025001') 
+	</select>
+	
+	<select id="dicts_ssxt">
+		select cast(obj_id as varchar(42)) xtbm,xtmc from mw_app.cmst_kq_xt order by xtmc
+	</select>
+	
+	
+</sql-Maping>

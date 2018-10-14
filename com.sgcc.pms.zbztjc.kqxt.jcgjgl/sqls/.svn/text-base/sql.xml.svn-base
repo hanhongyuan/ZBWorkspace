@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-Maping>
+	
+	<!-- 主要系统告警信息查询统计所属系统下拉框的SQL代码 -->
+	<select id="dicts_ssxt_mainSystem">
+		select CAST(obj_id AS VARCHAR2(42)) obj_id,xtmc from cmst_kq_xt order by xtmc
+	</select>
+	
+	<!-- 主要系统告警信息查询统计所属单位下拉框的SQL代码 -->
+	<select id="dicts_ssdw_mainSystem">
+		select dep.wsid OBJ_ID ,dep.wsmc DEPTID from cmst_zb_comm_wspz dep order by dep.zdypx
+	</select>
+	
+	<!-- 输电告警信息查询统计所属单位下拉框的SQL代码 -->
+	<select id="dicts_ssdw_sd">
+		  select dep.wsid OBJ_ID ,dep.wsmc DEPTID from cmst_zb_comm_wspz dep where dep.wsmc not like '国网运行公司' order by dep.zdypx
+	</select>
+	
+	<!-- 主要系统告警信息查询统计电压等级下拉框的SQL代码 -->
+	<select id="dicts_dydj">
+		SELECT DYDJBM,DYDJMC FROM CMST_SB_PZ_SBDYDJ order by DYDJBM
+	</select>
+	
+	<!-- 主要系统告警信息查询统计监测类型下拉框的SQL代码 -->
+	<select id="dicts_jclx_mainSystem">
+		SELECT t.typecode DM,t.typename||'(变电)' MC FROM mw_app.cmst_monitoringtype t WHERE t.typecode like '02%' AND t.isalarm ='T' union SELECT t.typecode DM,t.typename||'(输电)' MC FROM mw_app.cmst_monitoringtype t WHERE t.typecode like '01%' AND t.isalarm ='T'
+	</select>
+	
+	<!-- 变电监测类型下拉框的SQL代码 -->
+	<select id="dicts_jclx_bd">
+		SELECT typecode dm, typename mc FROM mw_app.cmst_monitoringtype WHERE typecode LIKE '02%' and typecode not in ('021007', '025001','026001')
+	</select>
+	
+	<!-- 输电监测类型下拉框的SQL代码 -->
+	<select id="dicts_jclx_sd">
+		SELECT typecode dm,typename mc FROM mw_app.cmst_monitoringtype WHERE typecode LIKE '01%' and typecode not in ('018002','018003')
+	</select>
+	
+	<!-- 主要系统告警信息查询统计监测类型下拉框的SQL代码 -->
+	<select id="dicts_gjjb">
+		SELECT '1' dm, CAST('报警' AS VARCHAR2(10)) mc FROM dual UNION ALL SELECT '2' dm, CAST('预警' AS VARCHAR2(10)) mc FROM dual
+	</select>
+	
+</sql-Maping>

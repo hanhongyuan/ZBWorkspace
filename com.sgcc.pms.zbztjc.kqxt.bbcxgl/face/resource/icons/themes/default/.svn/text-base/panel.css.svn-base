@@ -1,0 +1,35 @@
+.mx .panel
+{
+	position:relative;
+    border:1px solid #9b9b9b;
+}
+
+.mx .panel > #head
+{
+    background:url(images/panel_head_bg.png) repeat-x;
+    border-bottom:1px solid #BABAC0;
+    height:21px;
+    line-height:21px;
+}
+
+.mx .panel > #head > #title
+{
+    width:100%;
+    font-size:12px;
+    text-shadow:0 1px 1px white;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    vertical-align:middel;
+    padding-left:6px;
+    padding-right:6px;
+}
+
+.mx .panel > #body
+{
+   	position:absolute;
+	top:0;
+	bottom:0;
+	width: 100%;
+	padding: 1px;
+}
